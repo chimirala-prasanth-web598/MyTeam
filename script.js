@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6d01608dc4a6eac53f3a40e40c03813607e3fbdf
         // Add smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -20,6 +24,7 @@
             });
         });
 
+<<<<<<< HEAD
         // Add form submission handler
         document.getElementById('certificate-form')?.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -134,3 +139,5 @@
 
         // Load templates when page loads
         document.addEventListener('DOMContentLoaded', loadTemplates);
+=======
+>>>>>>> 6d01608dc4a6eac53f3a40e40c03813607e3fbdf
