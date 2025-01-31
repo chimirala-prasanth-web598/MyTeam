@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 6d01608dc4a6eac53f3a40e40c03813607e3fbdf
         // Add smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -24,8 +20,39 @@
             });
         });
 
-<<<<<<< HEAD
-        // Add form submission handler
+        // Load certificate templates
+        async function loadTemplates() {
+            try {
+                const response = await fetch('http://localhost:3000/api/templates');
+                const templates = await response.json();
+                
+                const container = document.getElementById('template-container');
+                templates.forEach(template => {
+                    const templateDiv = document.createElement('div');
+                    templateDiv.className = 'col-md-4';
+                    templateDiv.innerHTML = `
+                        <div class="template-option" data-template-id="${template.id}">
+                            <img src="${template.preview}" alt="${template.name}">
+                            <p class="text-center mt-2">${template.name}</p>
+                        </div>
+                    `;
+                    container.appendChild(templateDiv);
+                });
+
+                // Add template selection handler
+                document.querySelectorAll('.template-option').forEach(option => {
+                    option.addEventListener('click', () => {
+                        document.querySelectorAll('.template-option').forEach(opt => 
+                            opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading templates:', error);
+            }
+        }
+
+        // Form submission handler
         document.getElementById('certificate-form')?.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -71,73 +98,52 @@
             }
         });
 
-        // Add certificate verification handler
-        document.getElementById('verify-form')?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const certificateId = document.getElementById('certificate-id').value;
-            
-            try {
-                const response = await fetch(`http://localhost:3000/api/verify/${certificateId}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    const certificate = data.certificate;
-                    document.getElementById('verification-result').innerHTML = `
-                        <div class="alert alert-success">
-                            <h4>Certificate Verified</h4>
-                            <p>Name: ${certificate.name}</p>
-                            <p>Category: ${certificate.category}</p>
-                            <p>Issue Date: ${new Date(certificate.issueDate).toLocaleDateString()}</p>
-                        </div>
-                    `;
-                } else {
-                    document.getElementById('verification-result').innerHTML = `
-                        <div class="alert alert-danger">
-                            <h4>Invalid Certificate</h4>
-                            <p>The certificate ID provided is not valid.</p>
-                        </div>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error verifying certificate. Please try again.');
-            }
-        });
-
-        // Load certificate templates
-        async function loadTemplates() {
-            try {
-                const response = await fetch('http://localhost:3000/api/templates');
-                const templates = await response.json();
-                
-                const container = document.getElementById('template-container');
-                templates.forEach(template => {
-                    const templateDiv = document.createElement('div');
-                    templateDiv.className = 'col-md-4';
-                    templateDiv.innerHTML = `
-                        <div class="template-option" data-template-id="${template.id}">
-                            <img src="${template.preview}" alt="${template.name}">
-                            <p class="text-center mt-2">${template.name}</p>
-                        </div>
-                    `;
-                    container.appendChild(templateDiv);
-                });
-
-                // Add template selection handler
-                document.querySelectorAll('.template-option').forEach(option => {
-                    option.addEventListener('click', () => {
-                        document.querySelectorAll('.template-option').forEach(opt => 
-                            opt.classList.remove('selected'));
-                        option.classList.add('selected');
-                    });
-                });
-            } catch (error) {
-                console.error('Error loading templates:', error);
-            }
-        }
-
         // Load templates when page loads
         document.addEventListener('DOMContentLoaded', loadTemplates);
-=======
->>>>>>> 6d01608dc4a6eac53f3a40e40c03813607e3fbdf
+
+        // Add this function for live preview
+        function updatePreview() {
+            const name = document.getElementById('name').value || 'Your Name';
+            const category = document.getElementById('category').value || 'Selected Category';
+            const selectedTemplate = document.querySelector('.template-option.selected');
+            
+            if (!selectedTemplate) return;
+            
+            const templateId = selectedTemplate.dataset.templateId;
+            const previewContainer = document.getElementById('certificate-preview');
+            
+            // Show loading state
+            previewContainer.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Generating preview...</p></div>';
+
+            // Generate preview
+            fetch('http://localhost:3000/api/preview-certificate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, category, templateId })
+            })
+            .then(response => response.blob())
+            .then(blob => {
+                const previewUrl = URL.createObjectURL(blob);
+                previewContainer.innerHTML = `<img src="${previewUrl}" class="img-fluid" alt="Certificate Preview">`;
+            })
+            .catch(error => {
+                console.error('Preview error:', error);
+                previewContainer.innerHTML = '<p class="text-danger">Error generating preview</p>';
+            });
+        }
+
+        // Update event listeners
+        document.getElementById('name')?.addEventListener('input', updatePreview);
+        document.getElementById('category')?.addEventListener('change', updatePreview);
+
+        // Update template selection handler
+        document.querySelectorAll('.template-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.template-option').forEach(opt => 
+                    opt.classList.remove('selected'));
+                option.classList.add('selected');
+                updatePreview();
+            });
+        });
