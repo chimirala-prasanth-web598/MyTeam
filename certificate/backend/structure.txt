@@ -1,0 +1,15 @@
+backend/
+├── config/
+│   └── db.js
+├── controllers/
+│   └── certificateController.js
+├── models/
+│   └── Certificate.js
+├── routes/
+│   └── certificateRoutes.js
+├── middleware/
+│   └── auth.js
+├── utils/
+│   └── certificateGenerator.js
+├── package.json
+└── server.js 

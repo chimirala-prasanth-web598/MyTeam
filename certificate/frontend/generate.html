@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Hub - Generate Certificate</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: var(--primary-color)"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-certificate me-2"></i>Certificate Hub
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#categories">Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="generate.html"
+                >Generate Certificate</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Generate Certificate Form -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Generate Certificate</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-body">
+                <form id="certificateForm">
+                  <div class="mb-3">
+                    <label for="category" class="form-label"
+                      >Certificate Category</label
+                    >
+                    <select class="form-select" id="category" required>
+                      <option value="">Select Category</option>
+                      <option value="engineering">Mock Engineering</option>
+                      <option value="management">Mock Management</option>
+                      <option value="competitive">
+                        Competitive Mock Exams
+                      </option>
+                      <option value="language">Language Mock exam</option>
+                      <option value="technical">Technical Skills</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="subcategory" class="form-label"
+                      >Subcategory</label
+                    >
+                    <select class="form-select" id="subcategory" required>
+                      <option value="">Select Subcategory</option>
+                      <option value="btech">B.Tech Degree</option>
+                      <option value="mtech">M.Tech Degree</option>
+                      <option value="engineering">Engineering Diploma</option>
+                    </select>
+                  </div>
+                  <div class="mb-3" id="yearContainer" style="display: none">
+                    <label for="year" class="form-label">Year</label>
+                    <select class="form-select" id="year" required>
+                      <option value="">Select Year</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="background" class="form-label"
+                      >Certificate Background</label
+                    >
+                    <div class="background-preview-grid">
+                      <div class="row g-3">
+                        <div
+                          class="col-md-3 col-6"
+                          v-for="(bg, index) in backgrounds"
+                        >
+                          <div class="background-option">
+                            <input
+                              type="radio"
+                              name="background"
+                              id="bg1"
+                              value="bg1"
+                              class="d-none"
+                              required
+                            />
+                            <label for="bg1" class="background-preview">
+                              <img
+                                src="images/backgrounds/bg1.jpg"
+                                alt="Background 1"
+                                src="images/backgrounds/bg2.jpg"
+                                alt="Background "
+                                src="images/backgrounds/bg3.jpg"
+                                alt="Background 3"
+                                src="images/backgrounds/bg4.jpg"
+                                alt="Background 4"
+                                src="images/backgrounds/bg5.jpg"
+                                alt="Background 5"
+                                class="img-fluid"
+                              />
+                            </label>
+                          </div>
+                        </div>
+                        <!-- Add more background options -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="recipientPhoto" class="form-label">
+                      Recipient Photo
+                      <small class="text-muted">(Optional, Max 2MB)</small>
+                    </label>
+                    <div class="photo-upload-container">
+                      <input
+                        type="file"
+                        class="form-control"
+                        id="recipientPhoto"
+                        accept="image/*"
+                        onchange="previewPhoto(this)"
+                      />
+                      <div id="photoPreview" class="photo-preview d-none">
+                        <img src="" alt="Preview" class="preview-image" />
+                        <button
+                          type="button"
+                          class="btn-remove-photo"
+                          onclick="removePhoto()"
+                        >
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="recipientName" class="form-label"
+                      >Recipient Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="recipientName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="courseName" class="form-label"
+                      >Course Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="courseName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="fontStyle" class="form-label"
+                      >Certificate Font Style</label
+                    >
+                    <select class="form-select" id="fontStyle" required>
+                      <option value="helvetica">Helvetica (Default)</option>
+                      <option value="times">Times New Roman</option>
+                      <option value="georgia">Georgia</option>
+                      <option value="calibri">Calibri</option>
+                      <option value="palatino">Palatino</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="appreciationText" class="form-label">
+                      Appreciation Text
+                      <small class="text-muted"
+                        >(Optional, Max 200 characters)</small
+                      >
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="appreciationText"
+                      rows="3"
+                      maxlength="200"
+                    ></textarea>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary">
+                      Generate Certificate
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section id="previewSection" class="py-5 d-none">
+      <div class="container">
+        <h3 class="text-center mb-4">Certificate Preview</h3>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="card">
+              <div class="card-body">
+                <div id="certificatePreview" class="text-center">
+                  <!-- Certificate preview will be inserted here -->
+                </div>
+                <div class="text-center mt-4">
+                  <button id="downloadBtn" class="btn btn-success me-2">
+                    Download Certificate
+                  </button>
+                  <button id="emailBtn" class="btn btn-primary">
+                    Send via Email
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
