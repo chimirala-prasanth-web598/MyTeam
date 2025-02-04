@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate of Appreciation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', serif;
+            background-color: #f5f5f5;
+        }
+
+        .certificate-container {
+            width: 800px;
+            height: 600px;
+            margin: 50px auto;
+            background: linear-gradient(45deg, #fff 0%, #f9f9f9 100%);
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+            border: 2px solid #e5e5e5;
+        }
+
+        .gold-ribbon {
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 120px;
+            height: 180px;
+            background: linear-gradient(45deg, #ffd700 0%, #ffcc00 100%);
+            clip-path: polygon(50% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%, 0% 0%);
+        }
+
+        .gold-seal {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at center, #ffd700 0%, #daa520 100%);
+            border-radius: 50%;
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .certificate-content {
+            text-align: center;
+            padding: 20px 40px;
+            margin-left: 100px;
+        }
+
+        .certificate-title {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
+        .presentation-text {
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        .recipient-name {
+            font-size: 32px;
+            color: #333;
+            font-family: 'Brush Script MT', cursive;
+            margin: 30px 0;
+        }
+
+        .recognition-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin: 30px 0;
+        }
+
+        .signature-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+        }
+
+        .signature {
+            text-align: center;
+        }
+
+        .signature-line {
+            width: 200px;
+            border-top: 1px solid #333;
+            margin-bottom: 10px;
+        }
+
+        .signature-name {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .signature img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div class="gold-ribbon"></div>
+        <div class="gold-seal"></div>
+        <div class="certificate-content">
+            <h1 class="certificate-title">CERTIFICATE OF APPRECIATION</h1>
+            <p class="presentation-text">This certificate is proudly presented to</p>
+            <h2 class="recipient-name">{{recipientName}}</h2>
+            <p class="recognition-text">In recognition of your dedication and hard work you<br>
+                have made to {{companyName}} over this year</p>
+            
+            <div class="signature-section">
+                <div class="signature">
+                    <img src="/signatures/signature1.png" alt="Signature 1">
+                    <div class="signature-line"></div>
+                    <p class="signature-name">JONATHAN PATTERSON</p>
+                </div>
+                <div class="signature">
+                    <img src="/signatures/signature2.png" alt="Signature 2">
+                    <div class="signature-line"></div>
+                    <p class="signature-name">FRANCISCO ANDRADE</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

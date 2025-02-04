@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .certificate {
+            width: 1000px;
+            height: 700px;
+            padding: 20px;
+            text-align: center;
+            border: 10px solid #787878;
+            position: relative;
+            margin: 20px;
+        }
+
+        .certificate-engineering {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .certificate-management {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+
+        .certificate-border {
+            width: calc(100% - 40px);
+            height: calc(100% - 40px);
+            border: 5px solid #787878;
+            padding: 20px;
+        }
+
+        .certificate-title {
+            text-align: center;
+            font-size: 50px;
+            margin: 20px;
+            color: #262626;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .certificate-img {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+        }
+
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .certificate-body {
+            text-align: center;
+            font-size: 20px;
+            margin: 20px 0;
+            color: #262626;
+            font-family: Arial, sans-serif;
+        }
+
+        .signature-line {
+            width: 200px;
+            border-bottom: 2px solid #262626;
+            margin: 20px auto;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            opacity: 0.1;
+            color: #262626;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Engineering Certificate Template -->
+    <div class="certificate certificate-engineering">
+        <div class="certificate-border">
+            <div class="watermark">SAMPLE</div>
+            <div class="certificate-title">Certificate of Excellence</div>
+            <div class="certificate-img">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M12,15C7.58,15 4,16.79 4,19V21H20V19C20,16.79 16.42,15 12,15M8,9A4,4 0 0,0 12,13A4,4 0 0,0 16,9M11.5,2C11.2,2 11,2.21 11,2.5V5.5H10V3C10,3 7.75,3.86 7.75,6.75C7.75,7.37 8.49,7.86 9.5,7.86C9.61,7.86 9.72,7.85 9.83,7.84C9.34,8.27 9,8.87 9,9.5C9,10.88 10.12,12 11.5,12C12.88,12 14,10.88 14,9.5C14,8.87 13.66,8.27 13.17,7.84C13.28,7.85 13.39,7.86 13.5,7.86C14.51,7.86 15.25,7.37 15.25,6.75C15.25,3.86 13,3 13,3V5.5H12V2.5C12,2.21 11.79,2 11.5,2Z"/>
+                </svg>
+            </div>
+            <div class="certificate-body">
+                This is to certify excellence in<br>
+                <strong>Engineering Studies</strong><br><br>
+                Awarded to<br>
+                <em>[Name of Recipient]</em><br><br>
+                for outstanding achievement in technical studies
+            </div>
+            <div class="signature-line"></div>
+            <div class="certificate-body">Director of Engineering</div>
+        </div>
+    </div>
+
+    <!-- Management Certificate Template -->
+    <div class="certificate certificate-management">
+        <div class="certificate-border">
+            <div class="watermark">SAMPLE</div>
+            <div class="certificate-title">Certificate of Achievement</div>
+            <div class="certificate-img">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z"/>
+                </svg>
+            </div>
+            <div class="certificate-body">
+                This is to certify excellence in<br>
+                <strong>Business Management</strong><br><br>
+                Awarded to<br>
+                <em>[Name of Recipient]</em><br><br>
+                for exceptional leadership and management skills
+            </div>
+            <div class="signature-line"></div>
+            <div class="certificate-body">Director of Management Studies</div>
+        </div>
+    </div>
+
+    <script>
+       // Add smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Add animation on scroll
+window.addEventListener('scroll', function() {
+    const cards = document.querySelectorAll('.feature-card, .category-card');
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < window.innerHeight - 100) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+// Certificate template generator
+function generateCertificateTemplate(type) {
+    const template = document.createElement('div');
+    template.className = `certificate certificate-${type}`;
+    template.style.width = '1000px';
+    template.style.height = '700px';
+    template.style.padding = '20px';
+    template.style.textAlign = 'center';
+    template.style.border = '10px solid #787878';
+    template.style.position = 'relative';
+    template.style.margin = '20px';
+    template.style.background = type === 'engineering' 
+        ? 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)'
+        : 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)';
+
+    const content = `
+        <div class="certificate-border" style="width: calc(100% - 40px); height: calc(100% - 40px); border: 5px solid #787878; padding: 20px;">
+            <div class="watermark" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 100px; opacity: 0.1; color: #262626;">SAMPLE</div>
+            <div class="certificate-title" style="text-align: center; font-size: 50px; margin: 20px; color: #262626; font-family: 'Times New Roman', Times, serif;">
+                ${type === 'engineering' ? 'Certificate of Excellence' : 'Certificate of Achievement'}
+            </div>
+            <div class="certificate-img" style="width: 100px; height: 100px; margin: 20px auto;">
+                ${type === 'engineering' 
+                    ? '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,15C7.58,15 4,16.79 4,19V21H20V19C20,16.79 16.42,15 12,15M8,9A4,4 0 0,0 12,13A4,4 0 0,0 16,9M11.5,2C11.2,2 11,2.21 11,2.5V5.5H10V3C10,3 7.75,3.86 7.75,6.75C7.75,7.37 8.49,7.86 9.5,7.86C9.61,7.86 9.72,7.85 9.83,7.84C9.34,8.27 9,8.87 9,9.5C9,10.88 10.12,12 11.5,12C12.88,12 14,10.88 14,9.5C14,8.87 13.66,8.27 13.17,7.84C13.28,7.85 13.39,7.86 13.5,7.86C14.51,7.86 15.25,7.37 15.25,6.75C15.25,3.86 13,3 13,3V5.5H12V2.5C12,2.21 11.79,2 11.5,2Z"/></svg>'
+                    : '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z"/></svg>'}
+            </div>
+            <div class="certificate-body" style="text-align: center; font-size: 20px; margin: 20px 0; color: #262626; font-family: Arial, sans-serif;">
+                This is to certify excellence in<br>
+                <strong>${type === 'engineering' ? 'Engineering Studies' : 'Business Management'}</strong><br><br>
+                Awarded to<br>
+                <em id="recipient-name">[Name of Recipient]</em><br><br>
+                for ${type === 'engineering' ? 'outstanding achievement in technical studies' : 'exceptional leadership and management skills'}
+            </div>
+            <div class="signature-line" style="width: 200px; border-bottom: 2px solid #262626; margin: 20px auto;"></div>
+            <div class="certificate-body" style="font-size: 16px;">
+                ${type === 'engineering' ? 'Director of Engineering' : 'Director of Management Studies'}
+            </div>
+        </div>
+    `;
+
+    template.innerHTML = content;
+    return template;
+}
+
+// Update template selection handler
+function initializeTemplateSelection() {
+    const templateContainer = document.getElementById('template-container');
+    if (!templateContainer) return;
+
+    templateContainer.innerHTML = '<p class="text-center">Loading templates...</p>';
+
+    // Create sample templates
+    const templates = [
+        {
+            id: '1',
+            name: 'Engineering Certificate',
+            category: 'Engineering',
+            preview: generateCertificateTemplate('engineering')
+        },
+        {
+            id: '2',
+            name: 'Management Certificate',
+            category: 'Management',
+            preview: generateCertificateTemplate('management')
+        }
+    ];
+
+    templateContainer.innerHTML = '';
+    const row = document.createElement('div');
+    row.className = 'row g-3';
+
+    templates.forEach(template => {
+        const col = document.createElement('div');
+        col.className = 'col-md-6';
+        
+        // Create template preview container
+        const previewContainer = document.createElement('div');
+        previewContainer.className = 'template-option card';
+        previewContainer.dataset.templateId = template.id;
+        
+        // Add template preview
+        const previewWrapper = document.createElement('div');
+        previewWrapper.style.transform = 'scale(0.3)';
+        previewWrapper.style.transformOrigin = 'top center';
+        previewWrapper.style.margin = '-250px -350px';
+        previewWrapper.appendChild(template.preview);
+        
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+        cardBody.innerHTML = `
+            <h5 class="card-title">${template.name}</h5>
+            <p class="card-text text-muted">${template.category}</p>
+        `;
+
+        previewContainer.appendChild(previewWrapper);
+        previewContainer.appendChild(cardBody);
+        col.appendChild(previewContainer);
+        row.appendChild(col);
+    });
+
+    templateContainer.appendChild(row);
+
+    // Add click handlers for template selection
+    const templateOptions = templateContainer.querySelectorAll('.template-option');
+    templateOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            templateOptions.forEach(t => t.classList.remove('selected'));
+            this.classList.add('selected');
+            
+            // Update preview
+            const previewContainer = document.getElementById('certificate-preview');
+            const selectedTemplate = generateCertificateTemplate(
+                this.querySelector('.card-title').textContent.toLowerCase().includes('engineering') 
+                    ? 'engineering' 
+                    : 'management'
+            );
+            
+            // Update recipient name if available
+            const nameInput = document.getElementById('name');
+            if (nameInput.value) {
+                selectedTemplate.querySelector('#recipient-name').textContent = nameInput.value;
+            }
+            
+            const wrapper = document.createElement('div');
+            wrapper.style.transform = 'scale(0.4)';
+            wrapper.style.transformOrigin = 'top center';
+            wrapper.style.margin = '-200px -300px';
+            wrapper.appendChild(selectedTemplate);
+            
+            previewContainer.innerHTML = '';
+            previewContainer.appendChild(wrapper);
+        });
+    });
+}
+
+// Update form submission handler
+const certificateForm = document.getElementById('certificate-form');
+if (certificateForm) {
+    certificateForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const selectedTemplate = document.querySelector('.template-option.selected');
+        if (!selectedTemplate) {
+            alert('Please select a certificate template');
+            return;
+        }
+        
+        const formData = new FormData(e.target);
+        const certificateData = {
+            templateId: selectedTemplate.dataset.templateId,
+            name: formData.get('name'),
+            category: formData.get('category'),
+            data: Object.fromEntries(formData)
+        };
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}/certificates/generate`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(certificateData)
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Show preview
+                const previewFrame = document.createElement('iframe');
+                previewFrame.src = data.previewUrl;
+                const previewContainer = document.getElementById('certificate-preview');
+                previewContainer.innerHTML = '';
+                previewContainer.appendChild(previewFrame);
+
+                // Update modal
+                document.getElementById('certificate-id').textContent = data.certificateId;
+                document.getElementById('preview-link').href = data.previewUrl;
+                document.getElementById('download-link').href = data.downloadUrl;
+
+                // Show modal
+                new bootstrap.Modal(document.getElementById('successModal')).show();
+            } else {
+                alert('Error generating certificate. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error generating certificate. Please try again.');
+        }
+    });
+}
+
+// Initialize template selection when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    initializeTemplateSelection();
+});
+
+// Update name in preview as user types
+document.getElementById('name')?.addEventListener('input', function() {
+    const previewContainer = document.getElementById('certificate-preview');
+    const recipientName = previewContainer.querySelector('#recipient-name');
+    if (recipientName) {
+        recipientName.textContent = this.value || '[Name of Recipient]';
+    }
+});
+    </script>
+</body>
+</html> 

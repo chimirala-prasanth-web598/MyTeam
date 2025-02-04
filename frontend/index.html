@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Hub - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-color);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-certificate me-2"></i>Certificate Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="generate.html">Generate Certificate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-4">Welcome to Certificate Hub</h1>
+            <p class="lead mb-4">Generate professional certificates for various educational achievements</p>
+            <a href="generate.html" class="btn btn-light btn-lg">Start Generating Certificates</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div>Certificate Templates</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">1M+</div>
+                        <div>Certificates Generated</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div>Institutions</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div>Categories</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Certificate Categories</h2>
+            <div class="row g-4">
+                <!-- Engineering Certificates -->
+                <div class="col-md-4">
+                    <div class="category-card card" onclick="window.location.href='generate.html#engineering'">
+                        <div class="card-body text-center">
+                            <i class="fas fa-cogs category-icon"></i>
+                            <h4>Engineering Mock Tests</h4>
+                            <p>B.Tech, M.Tech, Engineering Entrance</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Management Certificates -->
+                <div class="col-md-4">
+                    <div class="category-card card" onclick="window.location.href='generate.html#management'">
+                        <div class="card-body text-center">
+                            <i class="fas fa-chart-line category-icon"></i>
+                            <h4>Management Mock Tests</h4>
+                            <p>MBA, PGDM, Business Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vocational Courses -->
+                <div class="col-md-4">
+                    <div class="category-card card" onclick="window.location.href='generate.html#vocational'">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tools category-icon"></i>
+                            <h4>Vocational Mock Tests</h4>
+                            <p>ITI, Diploma, Skill Development</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NPTEL Certificates -->
+                <div class="col-md-4">
+                    <div class="category-card card" onclick="window.location.href='generate.html#nptel'">
+                        <div class="card-body text-center">
+                            <i class="fas fa-graduation-cap category-icon"></i>
+                            <h4>NPTEL Mock Tests</h4>
+                            <p>Online Courses, Specializations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Certificates -->
+                <div class="col-md-4">
+                    <div class="category-card card" onclick="window.location.href='generate.html#language'">
+                        <div class="card-body text-center">
+                            <i class="fas fa-language category-icon"></i>
+                            <h4>Language Mock Tests</h4>
+                            <p>TOEFL, IELTS, Foreign Languages</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="col-md-4">
+                    <div class="category-card card" onclick="window.location.href='generate.html#technical'">
+                        <div class="card-body text-center">
+                            <i class="fas fa-laptop-code category-icon"></i>
+                            <h4>Technical Mock Tests</h4>
+                            <p>Programming, Cloud, Data Science</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Us</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-bolt fa-3x mb-3 text-primary"></i>
+                            <h4>Quick Generation</h4>
+                            <p>Generate certificates in seconds with our automated system</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-lock fa-3x mb-3 text-primary"></i>
+                            <h4>Secure & Verified</h4>
+                            <p>Each certificate comes with a unique verification code</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-paint-brush fa-3x mb-3 text-primary"></i>
+                            <h4>Customizable</h4>
+                            <p>Customize templates according to your needs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="contact-section">
+            <h2>About Us</h2>
+            <p>We are a dynamic team of developers and innovators dedicated to revolutionizing the process of certificate generation. Our mission is to make creating, customizing, and delivering certificates easier and more efficient for organizations, institutions, and individuals.</p>
+
+            <h2>Meet Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <h2 style="margin-left:-30px;">Prasanth</h2>
+                    <h4>Scrum Lead</h4>
+                    <p style="margin-left:90px;">Contact: +91 6300747673</p>
+                </div>
+                <div class="team-member">
+                    <h2 style="margin-left:-100px;">Syam</h2>
+                    <h4 style="margin-left:70px;">UI/UX Designer</h4>
+                    <p style="margin-left:90px;">Contact: +91 8179249607</p>
+                </div>
+                <div class="team-member">
+                    <h2 style="margin-left:-5px;">Mallikarjuna</h2>
+                    <h4 style="margin-left:30px;">Backend developer</h4>
+                    <p style="margin-left:80px;">Contact: +91 8106892584</p>
+                </div>
+                    <div class="team-member">
+                        <h2 style="margin-left:-30px;">Sameeraja</h2>
+                        <h4 style="margin-left:105px;">Email Integration Expert</h4>
+                        <p style="margin-left:70px;">Contact:+91 9390851343</p>
+                    </div>
+                    <div class="team-member">
+                        <h2 style="margin-left:15px;">vennela</h2>
+                        <h4 style="margin-left:105px;">Data Analyst</h4>
+                        <p style="margin-left:155px;">Contact:+91 8919786458</p>
+                    </div>
+                
+            </div>
+            <div class="nuzvid">
+                <h2>Contact Details</h2>
+                <p>Tel: +91 6300747673</p>
+                <p>Email: n210598rguktn@ac.in</p>
+                <p><u>Address:</u><br />
+                RGUKT Nuzvid<br />
+                Mylavaram Road, Nuzvid
+                </p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Certificate Hub</h5>
+                    <p>Your trusted platform for professional certificate generation</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">© 2025 Certificate Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
